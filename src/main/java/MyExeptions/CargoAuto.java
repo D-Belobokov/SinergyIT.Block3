@@ -1,9 +1,9 @@
-package Lesson4;
+package MyExeptions;
 
-import Lesson4.Exeptions.LimitDimensionsException;
-import Lesson4.Exeptions.LimitSpeed100Exception;
-import Lesson4.Exeptions.LimitSpeed80Exception;
-import Lesson4.Exeptions.LimitWeightException;
+import MyExeptions.Exeptions.LimitDimensionsException;
+import MyExeptions.Exeptions.LimitSpeed100Exception;
+import MyExeptions.Exeptions.LimitSpeed80Exception;
+import MyExeptions.Exeptions.LimitWeightException;
 
 import java.util.Random;
 

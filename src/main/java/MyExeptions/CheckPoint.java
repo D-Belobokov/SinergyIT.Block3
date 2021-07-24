@@ -1,4 +1,4 @@
-package Lesson4;
+package MyExeptions;
 
 public class CheckPoint {
     private static final int HEIGHT = 400; //высота см

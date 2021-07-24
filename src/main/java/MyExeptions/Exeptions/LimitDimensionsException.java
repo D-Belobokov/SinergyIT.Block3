@@ -1,4 +1,4 @@
-package Lesson4.Exeptions;
+package MyExeptions.Exeptions;
 
 public class LimitDimensionsException extends RuntimeException{
     public LimitDimensionsException(String message){
