@@ -46,21 +46,20 @@ public class Auto implements Automotive {
         this.width = random.nextInt(350);
         this.weight = random.nextInt(10);
         this.num = random.nextInt(1000);
-        this.number = String.valueOf(x + num + y);
+        this.number = String.valueOf(Character.toString(x) + num + Character.toString(y));
     }
 
     @Override
     public void speedCheck() throws LimitSpeed80Exception, LimitSpeed100Exception {
         if (getSpeed() < 80) {
-            System.out.println(" Легковой автомобиль" + getNumber() + " успешно прошел КПП по скорости "
-                    + " № " + getNumber() + " Скорость " + getSpeed());
+            System.out.println(" Легковой автомобиль  № " + getNumber() + " двигается с разрешенной скоростью " +
+                       " Скорость " + getSpeed() + " км/ч ");
         } else if (getSpeed() > 80 & getSpeed() <= 100) {
             throw new LimitSpeed80Exception(" Легковой автомобиль № " + getNumber()
-                    + " превышение скорости" + getSpeed() + " max 80км/ч ");
+                    + " превышает скорость : " + getSpeed() + " max 80км/ч ");
         } else if (getSpeed() > 100) {
-            throw new LimitSpeed100Exception("Легковой автомобиль № "
-                    + getNumber() + " скорость более 100 км/ч " + getSpeed() +
-                    " автомобиль преследует полиция ");
+            throw new LimitSpeed100Exception(" Легковой автомобиль № " + getNumber() + " скорость более 100 км/ч "
+                    + getSpeed() + " км/ч " + " автомобиль преследует полиция ");
         }
     }
 
@@ -73,7 +72,8 @@ public class Auto implements Automotive {
             throw new LimitDimensionsException(" Легковой автомобиль "
                     + getNumber() + " не проходит по габаритам ");
         } else {
-            System.out.println(" Легковой автомобиль" + getNumber() + " успешно прошел КПП по габаритам ");
+            System.out.println(" Легковой автомобиль " + getNumber() +
+                    " Габариты легкового автомобиля не превышают ограничениий для проезда КПП");
         }
     }
 }

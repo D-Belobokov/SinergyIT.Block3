@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Введите количество автомобилей штурмующих КПП от 25 до 35");
+        System.out.println("Введите количество автомобилей штурмующих КПП ");
         Scanner unit = new Scanner(System.in);
         final int size = unit.nextInt();
         CheckPoint checkPoint = new CheckPoint();

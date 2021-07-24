@@ -9,12 +9,13 @@ import java.util.Random;
 
 public class CargoAuto implements Automotive {
     Random random = new Random();
-    private int number;
+    private String number;
     int num;
     private int speed;  // скорость км/ч
     private int height; // высота cm
     private int width;  // ширина cm
     private int weight; // вес тонна
+
 
     Random r = new Random();
     char x = (char) (r.nextInt(26) + 'a');
@@ -36,9 +37,14 @@ public class CargoAuto implements Automotive {
         return speed;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
+
+    Random w = new Random();
+    char h = (char) (w.nextInt(26) + 'a');
+    char t = (char) (w.nextInt(26) + 'a');
+
 
     public CargoAuto() {
         this.speed = random.nextInt(110);
@@ -46,21 +52,21 @@ public class CargoAuto implements Automotive {
         this.width = random.nextInt(400);
         this.weight = random.nextInt(15);
         this.num = random.nextInt(1000);
-        this.number = x + num + y;
+        this.number = String.valueOf(Character.toString(h) + num + Character.toString(t));
 
     }
 
     @Override
     public void speedCheck() {
         if (getSpeed() < 80) {
-            System.out.println(" Грузовой автомобиль " + getNumber() + " успешно прошел КПП по скорости " +
-                    " № " + getNumber() + " Скорость " + getSpeed());
+            System.out.println(" Грузовой автомобиль № "+ getNumber() +  " Двигается с разрешенной скоростью " +
+                    " Скорость " + getSpeed() + " км/ч ");
         } else if (getSpeed() > 80 & getSpeed() <= 100) {
             throw new LimitSpeed80Exception(" Грузовой автомобиль № " + getNumber() +
-                    " превышение скорости : " + getSpeed() + " max 80км/ч ");
+                    " превышает скорость  : " + getSpeed() + " max 80км/ч ");
         } else if (getSpeed() > 100) {
             throw new LimitSpeed100Exception(" Автомобиль № " + getNumber() + " скорость более 100 км/ч : "
-                    + getSpeed() + " автомобиль преследует полиция ");
+                    + getSpeed() + " км/ч " + " автомобиль преследует полиция ");
         }
     }
 
@@ -71,7 +77,7 @@ public class CargoAuto implements Automotive {
         } else if (getHeight() > CheckPoint.getHEIGHT() || getWidth() > CheckPoint.getWIDTH()) {
             throw new LimitDimensionsException(" Грузовой автомобиль " + getNumber() + " не проходит по габаритам ");
         } else {
-            System.out.println(" Грузовой автомобиль успешно прошел КПП ");
+            System.out.println(" Габариты грузового автомобиля не превышают ограничениий для проезда КПП ");
         }
     }
 }
