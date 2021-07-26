@@ -1,9 +1,9 @@
 package Lesson4;
 
-import Lesson4.Exeptions.LimitDimensionsException;
-import Lesson4.Exeptions.LimitSpeed100Exception;
-import Lesson4.Exeptions.LimitSpeed80Exception;
-import Lesson4.Exeptions.LimitWeightException;
+import Lesson4.exceptions.LimitDimensionsException;
+import Lesson4.exceptions.LimitSpeed100Exception;
+import Lesson4.exceptions.LimitSpeed80Exception;
+import Lesson4.exceptions.LimitWeightException;
 
 import java.util.Random;
 
@@ -59,7 +59,7 @@ public class CargoAuto implements Automotive {
     @Override
     public void speedCheck() {
         if (getSpeed() < 80) {
-            System.out.println(" Грузовой автомобиль № "+ getNumber() +  " Двигается с разрешенной скоростью " +
+            System.out.println(" Грузовой автомобиль № " + getNumber() + " Двигается с разрешенной скоростью " +
                     " Скорость " + getSpeed() + " км/ч ");
         } else if (getSpeed() > 80 & getSpeed() <= 100) {
             throw new LimitSpeed80Exception(" Грузовой автомобиль № " + getNumber() +
@@ -72,9 +72,9 @@ public class CargoAuto implements Automotive {
 
     @Override
     public void dimensions() throws LimitDimensionsException, LimitWeightException {
-        if (getWeight() > CheckPoint.getWEIGHT()) {
+        if (getWeight() > CheckPoint.WEIGHT) {
             throw new LimitWeightException(" Грузовой автомобиль № " + getNumber() + " превышает допустимую массу ");
-        } else if (getHeight() > CheckPoint.getHEIGHT() || getWidth() > CheckPoint.getWIDTH()) {
+        } else if (getHeight() > CheckPoint.HEIGHT || getWidth() > CheckPoint.WIDTH) {
             throw new LimitDimensionsException(" Грузовой автомобиль " + getNumber() + " не проходит по габаритам ");
         } else {
             System.out.println(" Габариты грузового автомобиля не превышают ограничениий для проезда КПП ");
