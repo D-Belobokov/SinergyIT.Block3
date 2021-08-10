@@ -34,7 +34,7 @@ public class EmployeeRunner {
         System.out.println("итерация коллекции с конца. Удаление нечетных позиций");
 
         boolean r = false;
-        for (employeesList.listIterator(employeesList.size()); iterator.hasPrevious(); R = !R) {
+        for (employeesList.listIterator(employeesList.size()); iterator.hasPrevious(); r = !r) {
             iterator.previous();
             if (r) {
                 iterator.remove();
