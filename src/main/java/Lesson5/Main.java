@@ -18,6 +18,7 @@ package Lesson5;
         Vestibulum eget metus imperdiet sapien laoreet faucibus. Nunc eget vehicula mauris, ac auctor lorem.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio nec mi tempor dignissim.
 */
+
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -25,16 +26,30 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
 
+        // Ввод через консоль
+
         Scanner console = new Scanner(System.in);
         String text = console.nextLine();
+
+/*      Можно напрямую передать заданный текст
+
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Sed sodales consectetur purus at faucibus.\n" +
+                "        Donec mi quam, tempor vel ipsum non, " +
+                "faucibus suscipit massa. Morbi lacinia velit blandit tincidunt efficitur.\n" +
+                "        Vestibulum eget metus imperdiet sapien laoreet faucibus." +
+                " Nunc eget vehicula mauris, ac auctor lorem.\n" +
+                "        Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Integer vel odio nec mi tempor dignissim.";
+*/
         Map<String, Integer> wordToCount = new TreeMap<>();
-        for (String word : text.split(" "))
-        {
+        for (String word : text.split(" ")) {
             wordToCount.put(word, wordToCount.getOrDefault(word, 0) + 1);
         }
         System.out.println(wordToCount);
 
-        //System.out.println(text);
-
+        wordToCount.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .forEach(System.out::println);
     }
 }
