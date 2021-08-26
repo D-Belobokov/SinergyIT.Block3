@@ -34,26 +34,5 @@ public class Employee {
                 "fio='" + fio + '\'' +
                 ", workAge=" + workAge +
                 '}';
-    }
-
-    private static void printSet(Employee employee, Set<Employee> set) {
-        if (set.size() != 0) {
-            System.out.print(employee + " - { ");
-            for (Employee currentElement : set) {
-                System.out.print(currentElement + " ");
-            }
-            System.out.println("}");
-        }
-    }
-
-    private static Set<Employee> union(Set<Employee> employeeSet, Set<Employee> employeeSet2) {
-        Set<Employee> unionSet = new TreeSet<Employee>();
-        for (Employee currentElement : employeeSet) {
-            unionSet.add(currentElement);
-        }
-        for (Employee currentElement : employeeSet2) {
-            unionSet.add(currentElement);
-        }
-        return unionSet;
-    }
+    }        
 }
