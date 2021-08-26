@@ -2,10 +2,7 @@ package Lesson2;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
 
 @Setter
 @Getter
@@ -34,5 +31,5 @@ public class Employee {
                 "fio='" + fio + '\'' +
                 ", workAge=" + workAge +
                 '}';
-    }        
+    }
 }
