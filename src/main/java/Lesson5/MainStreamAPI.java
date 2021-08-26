@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class Main {
+public class MainStreamAPI {
     public static void main(String[] args) {
 
         // Ввод через консоль
@@ -42,13 +42,13 @@ public class Main {
                 "        Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Integer vel odio nec mi tempor dignissim.";
 */
-        Map<String, Integer> wordToCount = new TreeMap<>();
-        for (String word : text.split(" ")) {
-            wordToCount.put(word, wordToCount.getOrDefault(word, 0) + 1);
+        Map<String, Integer> textSuplly = new TreeMap<>();
+        for (String t : text.split(" ")) {
+            textSuplly.put(t, textSuplly.getOrDefault(t, 0) + 1);
         }
-        System.out.println(wordToCount);
+        System.out.println(textSuplly);
 
-        wordToCount.entrySet().stream()
+        textSuplly.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .forEach(System.out::println);
     }
